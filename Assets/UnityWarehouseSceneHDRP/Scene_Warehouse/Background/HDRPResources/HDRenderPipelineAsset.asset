@@ -36,7 +36,7 @@ MonoBehaviour:
     colorBufferFormat: 48
     supportCustomPass: 0
     customBufferFormat: 8
-    supportedLitShaderMode: 1
+    supportedLitShaderMode: 2
     planarReflectionResolution:
       m_Values: 000100000004000000080000
       m_SchemaId:
@@ -45,11 +45,11 @@ MonoBehaviour:
       m_Values: 800000000001000000020000
       m_SchemaId:
         m_Id: With3Levels
-    supportDecals: 0
+    supportDecals: 1
     supportDecalLayers: 0
-    supportSurfaceGradient: 1
+    supportSurfaceGradient: 0
     decalNormalBufferHP: 0
-    msaaSampleCount: 8
+    msaaSampleCount: 2
     supportMotionVectors: 1
     supportDataDrivenLensFlare: 1
     supportRuntimeAOVAPI: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
       maxAreaLightsOnScreen: 64
       maxCubeReflectionOnScreen: 32
       maxPlanarReflectionOnScreen: 8
-      maxDecalsOnScreen: 512
+      maxDecalsOnScreen: 50
       maxLightsPerClusterCell: 8
       maxLocalVolumetricFogSize: 0
       maxLocalVolumetricFogOnScreen: 256
@@ -126,9 +126,9 @@ MonoBehaviour:
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
     decalSettings:
-      drawDistance: 1000
-      atlasWidth: 4096
-      atlasHeight: 4096
+      drawDistance: 100
+      atlasWidth: 1024
+      atlasHeight: 1024
       perChannelMask: 0
     postProcessSettings:
       m_LutSize: 32
@@ -152,6 +152,7 @@ MonoBehaviour:
       forcedPercentage: 100
       lowResTransparencyMinimumThreshold: 0
       rayTracingHalfResThreshold: 50
+      lowResSSGIMinimumThreshold: 0
     lowresTransparentSettings:
       enabled: 0
       checkerboardDepthBuffer: 1
