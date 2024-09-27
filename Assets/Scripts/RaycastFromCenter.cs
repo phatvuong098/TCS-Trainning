@@ -33,6 +33,7 @@ public class RaycastFromCenter : MonoBehaviour
     public LabelGroup labelGroup;
 
     [SerializeField] GameObject labelPanel;
+    [SerializeField] GameObject labelNote;
 
     private Box currentBox;
     private GameObject currentLabel;
@@ -59,7 +60,7 @@ public class RaycastFromCenter : MonoBehaviour
         {
             lockRotate = false;
         }
-        
+
     }
 
     private void OnReceiverHanlder(string obj)
@@ -110,18 +111,40 @@ public class RaycastFromCenter : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance, tableLayer))
         {
-            if(currentBox != null)
+            string tag = afterlableParent.GetChild(0).tag;
+            float offset = 0;
+
+            switch (tag)
             {
-                afterlableParent.GetChild(0).position = hit.point + (0.27f * hit.normal);
-                afterlableParent.GetChild(0).up = hit.normal;
-            }
-            else
-            {
-                afterlableParent.GetChild(0).position = hit.point + (0.01f * hit.normal);
-                afterlableParent.GetChild(0).up = hit.normal;
+                case "box":
+                    offset = 0.27f;
+                    afterlableParent.GetChild(0).up = hit.normal;
+                    break;
+
+                case "bill":
+                    offset = 0.1f;
+                    afterlableParent.GetChild(0).up = hit.normal;
+                    break;
+
+                case "iron":
+                    offset = 0.555f;
+                    afterlableParent.GetChild(0).up = -hit.normal;
+                    break;
             }
 
-           
+            afterlableParent.GetChild(0).position = hit.point + (offset * hit.normal);
+
+
+            //if (currentBox != null)
+            //{
+            //    afterlableParent.GetChild(0).position = hit.point + (0.27f * hit.normal);
+            //    afterlableParent.GetChild(0).up = hit.normal;
+            //}
+            //else
+            //{
+            //    afterlableParent.GetChild(0).position = hit.point + (0.01f * hit.normal);
+            //    afterlableParent.GetChild(0).up = hit.normal;
+            //}
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -145,7 +168,7 @@ public class RaycastFromCenter : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 50, boxLayer))
             {
                 currentLabel.transform.position = hit.point + (0.01f * hit.normal);
-                currentLabel.transform.forward = hit.normal;
+                currentLabel.transform.forward = -hit.normal;
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -289,6 +312,9 @@ public class RaycastFromCenter : MonoBehaviour
 
     private void HandEmpty()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
@@ -316,6 +342,19 @@ public class RaycastFromCenter : MonoBehaviour
         {
             if (lastInteractive == null)
                 return;
+
+            string tag = lastInteractive.tag;
+
+            switch (tag)
+            {
+                case "box":
+                    labelNote.SetActive(true);
+                    break;
+
+                default:
+                    labelNote.SetActive(false);
+                    break;
+            }
 
             try
             {

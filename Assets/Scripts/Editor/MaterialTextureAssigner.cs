@@ -54,7 +54,7 @@ public class MaterialTextureAssigner : EditorWindow
                     if (texture != null)
                     {
                         // Gán texture vào _MainTex
-                        material.SetTexture("_MainTex", texture);
+                        material.SetTexture("_BaseColorMap", texture);
                         EditorUtility.SetDirty(material);  // Đánh dấu material là đã thay đổi
                         Debug.Log($"Đã gán texture '{texture.name}' cho material '{material.name}'");
                     }

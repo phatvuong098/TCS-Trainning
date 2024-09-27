@@ -8,7 +8,7 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
     float yRotation = 0f;
 
-    private bool active = true;
+    public bool active = true;
 
     void Start()
     {
