@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7322442224055887714
+--- !u!1 &7886832757184139021
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 304814575975658041}
-  - component: {fileID: 5270837324485143976}
+  - component: {fileID: 6522941747627884288}
+  - component: {fileID: 7902598360548067721}
   m_Layer: 0
   m_Name: 62
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &304814575975658041
+--- !u!4 &6522941747627884288
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7322442224055887714}
+  m_GameObject: {fileID: 7886832757184139021}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.641, y: 0.693, z: 13.809}
@@ -32,22 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!119 &5270837324485143976
+--- !u!119 &7902598360548067721
 Projector:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7322442224055887714}
+  m_GameObject: {fileID: 7886832757184139021}
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
-  m_FieldOfView: 60
+  m_FarClipPlane: 0.2
+  m_FieldOfView: 35
   m_AspectRatio: 1
-  m_Orthographic: 0
-  m_OrthographicSize: 10
-  m_Material: {fileID: 0}
+  m_Orthographic: 1
+  m_OrthographicSize: 0.09
+  m_Material: {fileID: 2100000, guid: 5009340b22b1e734ba242e38bf9cfdfc, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3149303

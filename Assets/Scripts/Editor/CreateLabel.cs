@@ -55,7 +55,7 @@ public class CreateLabel : EditorWindow
             GameObject clonedPrefab = Instantiate(prefabToClone);
             Material material = AssetDatabase.LoadAssetAtPath<Material>(materialFile);
 
-            //clonedPrefab.GetComponent<DecalProjector>().material = material;
+            clonedPrefab.GetComponent<Projector>().material = material;
 
             string prefabName = filename + ".prefab";
             string assetPath = prefabFolderPath + "/" + prefabName;
