@@ -4,7 +4,6 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering.HighDefinition;
 
 public class CreateLabel : EditorWindow
 {
@@ -56,7 +55,7 @@ public class CreateLabel : EditorWindow
             GameObject clonedPrefab = Instantiate(prefabToClone);
             Material material = AssetDatabase.LoadAssetAtPath<Material>(materialFile);
 
-            clonedPrefab.GetComponent<DecalProjector>().material = material;
+            //clonedPrefab.GetComponent<DecalProjector>().material = material;
 
             string prefabName = filename + ".prefab";
             string assetPath = prefabFolderPath + "/" + prefabName;

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Windows.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/UnityWarehouseSceneHDRP/Scene_Warehouse/WarehouseSceneSample.unity
+    path: Assets/Scenes/Webgl.unity
     guid: 22aa0ae95e95b0a479f2d0261bbb62ad
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8a596e6a705c01341bd11ea58b66c79f, type: 2}
