@@ -7,11 +7,6 @@ public class VR_Label : MonoBehaviour, IGroup
     [SerializeField] VR_Raycast hand;
     [SerializeField] private LabelElement[] elements;
 
-    [Space]
-    [SerializeField] GameObject labelAxitPrefab;
-    [SerializeField] GameObject labelFirePrefab;
-    [SerializeField] GameObject labelArowPrefab;
-
     private GameObject currentLabel;
 
     void Start()
@@ -42,27 +37,13 @@ public class VR_Label : MonoBehaviour, IGroup
             currentLabel = null;
         }
 
-        // currentLabel = InstanceLabel(label.labelType);
-        hand.SetLabel(currentLabel.transform);
+        currentLabel = InstanceLabel(label.labelType);
+        hand.SetLabel(currentLabel.transform, label.labelType);
     }
 
-    private GameObject InstanceLabel(E_LABEL label)
+    private GameObject InstanceLabel(int label)
     {
-        GameObject result = null;
-
-        switch (label)
-        {
-            case E_LABEL.FIRE:
-                result = Instantiate(labelFirePrefab);
-                break;
-            case E_LABEL.AXIT:
-                result = Instantiate(labelAxitPrefab);
-                break;
-            case E_LABEL.ARROW:
-                result = Instantiate(labelArowPrefab);
-                break;
-        }
-
+        GameObject result = Instantiate(Resources.Load("labels/" + label.ToString()) as GameObject);
         return result;
     }
 }

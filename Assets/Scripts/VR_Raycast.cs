@@ -2,7 +2,9 @@ using HurricaneVR.Framework.ControllerInput;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Policy;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VR_Raycast : MonoBehaviour
 {
@@ -11,13 +13,16 @@ public class VR_Raycast : MonoBehaviour
     [SerializeField] HVRPlayerInputs input;
     [SerializeField] Transform labelAnchor;
     [SerializeField] VR_Label label;
+    [SerializeField] Image icon;
 
     private Transform currentLabel;
 
-    public void SetLabel(Transform label)
+    public void SetLabel(Transform label, int labelType)
     {
         currentLabel = label;
         currentLabel.SetParent(labelAnchor, false);
+        Sprite sprite = Resources.Load<Sprite>("Sprites/" + labelType);
+        icon.sprite = sprite;
     }
 
     private void Update()
@@ -38,13 +43,14 @@ public class VR_Raycast : MonoBehaviour
                 return;
 
             currentLabel.position = hit.point + (.01f * hit.normal);
-            currentLabel.forward = hit.normal;
+            currentLabel.forward = -hit.normal;
 
             if (input.RightTriggerGrabState.Active)
             {
                 currentLabel.SetParent(hit.transform);
                 currentLabel = null;
                 label.StickLabel();
+                icon.sprite = null;
             }
         }
         else
@@ -63,5 +69,6 @@ public class VR_Raycast : MonoBehaviour
     {
         currentLabel.SetParent(null);
         currentLabel = null;
+        icon.sprite = null;
     }
 }
